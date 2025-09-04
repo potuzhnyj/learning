@@ -1,0 +1,19 @@
+{
+  "name": "linkredirect",
+  "version": "1.0.0",
+  "description": "Node server to follow redirects and extract campaign & campaignMarker, with optional Puppeteer fallback.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.mjs",
+    "start:debug": "DEBUG=1 node server.mjs"
+  },
+  "keywords": [],
+  "author": "Potuzhnyj + ChatGPT",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "puppeteer": "^24.18.0"
+  }
+}
