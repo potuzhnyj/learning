@@ -64,13 +64,13 @@ app.get("/apiKey", async (req, res) => {
   }
 });
 
+const config = {
+  headers: { Authorization: `Bearer ${yourBearerToken}` },
+};
+
 app.get("/bearerToken", async (req, res) => {
   try {
-    const response = await axios.get(`${API_URL}secrets/42`, {
-      headers: {
-        Authorization: `Bearer ${yourBearerToken}`,
-      },
-    });
+    const response = await axios.get(`${API_URL}secrets/42`, config);
     const result = JSON.stringify(response.data.secret);
     res.render("index.ejs", { content: result });
   } catch (error) {
