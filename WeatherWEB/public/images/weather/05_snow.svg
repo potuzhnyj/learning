@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+
+<g>
+  <circle cx="176.0" cy="260" r="80.0" fill="#40A7FF"/>
+  <circle cx="276.0" cy="240.0" r="100.0" fill="#40A7FF"/>
+  <circle cx="346.0" cy="260" r="70.0" fill="#40A7FF"/>
+  <rect x="106.0" y="260" width="300.0" height="90.0" rx="45.0" fill="#40A7FF"/>
+</g>
+<g stroke="#8FD3FF" stroke-width="10" stroke-linecap="round">
+  <line x1="210" y1="342" x2="210" y2="378"/>
+  <line x1="194" y1="350" x2="226" y2="370"/>
+  <line x1="194" y1="370" x2="226" y2="350"/>
+</g>
+
+<g stroke="#8FD3FF" stroke-width="10" stroke-linecap="round">
+  <line x1="260" y1="342" x2="260" y2="378"/>
+  <line x1="244" y1="350" x2="276" y2="370"/>
+  <line x1="244" y1="370" x2="276" y2="350"/>
+</g>
+
+<g stroke="#8FD3FF" stroke-width="10" stroke-linecap="round">
+  <line x1="310" y1="342" x2="310" y2="378"/>
+  <line x1="294" y1="350" x2="326" y2="370"/>
+  <line x1="294" y1="370" x2="326" y2="350"/>
+</g>
+</svg>

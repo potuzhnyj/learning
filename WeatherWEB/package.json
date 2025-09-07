@@ -1,0 +1,20 @@
+{
+  "name": "weatherweb",
+  "version": "1.0.0",
+  "description": "Access current weather data for any location on Earth ;)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Potuzhnyj",
+  "license": "ISC",
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.49.0",
+    "axios": "^1.11.0",
+    "body-parser": "^2.2.0",
+    "dotenv": "^17.2.2",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}

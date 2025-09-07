@@ -1,0 +1,153 @@
+:root {
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+  font-family: "Epunda Slab", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.container {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 90vh;
+}
+
+.box {
+  width: 70%;
+  text-align: center;
+  border: 5px solid black;
+}
+
+.search {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.github {
+  width: 30%;
+  border: 2px solid blue;
+}
+
+.icon {
+  display: flex;
+  border: 2px solid black;
+  align-content: flex-end;
+}
+
+.weather {
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.left .right {
+  padding: 0;
+  margin: 0;
+}
+
+.left {
+  width: 70%;
+  border: 2px solid orange;
+}
+.right {
+  width: 30%;
+  border: 2px solid blue;
+}
+
+.fourDays {
+  height: 200px;
+}
+
+/* From Uiverse.io by LightAndy1 */
+.group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 500px;
+}
+
+.input {
+  width: 500px;
+  height: 45px;
+  padding-left: 2.5rem;
+  box-shadow: 0 0 0 1.5px #0096c7, 0 0 25px -17px #00b4d8;
+  border: 0;
+  border-radius: 12px;
+  background-color: #caf0f8;
+  outline: none;
+  color: #000000;
+  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: text;
+  z-index: 0;
+}
+
+.input::placeholder {
+  color: #03045e;
+}
+
+.input:hover {
+  box-shadow: 0 0 0 2.5px #2f303d, 0px 0px 25px -15px #000;
+}
+
+.input:active {
+  transform: scale(0.95);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 2.5px #2f303d;
+}
+
+/* From https://www.liquid-glass.pro/generator.html */
+.liquid-glass {
+  border-radius: 56.00000000000001px;
+  position: relative;
+  isolation: isolate;
+  box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 50px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.liquid-glass:focus {
+  outline: none;
+}
+
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 56.00000000000001px;
+  box-shadow: inset 0 0 15px -5px #000000;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.glass-text {
+  position: relative;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 400;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transform: translate(0px, 0px);
+  font-family: "Georgia", "Microsoft YaHei", "微软雅黑", serif;
+}

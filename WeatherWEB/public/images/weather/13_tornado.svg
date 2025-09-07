@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+
+<g fill="#9EC7DB">
+  <ellipse cx="256" cy="200" rx="160" ry="44"/>
+  <ellipse cx="256" cy="250" rx="130" ry="38"/>
+  <ellipse cx="256" cy="300" rx="100" ry="30"/>
+  <ellipse cx="256" cy="350" rx="70" ry="24"/>
+  <ellipse cx="256" cy="400" rx="40" ry="16"/>
+</g>
+
+</svg>
