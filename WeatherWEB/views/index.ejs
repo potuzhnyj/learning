@@ -3,17 +3,12 @@
         <div class="container liquid-glass">
             <%# Searchbar %>
                 <div class="box search glass-text">
-                    <div class="group left">
+                    <div class="searchbar">
                         <form action="/city" method="post">
                             <input class="input" type="text" placeholder="Search..." name="city" />
                         </form>
                     </div>
 
-                    <div class="github">
-                        <a alt="github_link" href="https://github.com/potuzhnyj" target="_blank"><img class="icon"
-                                src="images/github.svg" height="30px" />
-                        </a>
-                    </div>
                 </div>
                 <%# Weather %>
                     <% if (locals.location && locals.condition && locals.forecast){ %>
