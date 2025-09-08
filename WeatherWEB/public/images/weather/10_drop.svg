@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-
-<path d="M256 100 C 246 200, 170 260, 170 330 a86 86 0 1 0 172 0 c0-70-76-130-86-230z" fill="#40A7FF"/>
-<circle cx="220" cy="320" r="18" fill="#9DD6FF" opacity="0.8"/>
-
-</svg>

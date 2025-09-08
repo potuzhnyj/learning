@@ -2,39 +2,47 @@
     <main>
         <div class="container liquid-glass">
             <%# Searchbar %>
-                <div class="box search glass-text">
-                    <div class="searchbar">
-                        <form action="/city" method="post">
-                            <input class="input" type="text" placeholder="Search..." name="city" />
-                        </form>
-                    </div>
-
+                <div class="box search">
+                    <form class="clear" action="/city" method="post">
+                        <input class="input" type="text" placeholder="Enter the city here..." name="city"
+                            autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+                    </form>
                 </div>
                 <%# Weather %>
                     <% if (locals.location && locals.condition && locals.forecast){ %>
-                        <div class="box weather">
-                            <div class="pic left">
-                                <img src="https:<%=condition.condition.icon%>" height="100px" />
+                        <div class="current">
+                            <div class="box clear left ">
+                                <h2>
+                                    <%= location.name %><img src="https:<%=condition.condition.icon%>" height="70px" />
+
+                                </h2>
+
                             </div>
 
-                            <div class="info right">
-                                <h2>
-                                    <%= location.name %>
-                                </h2>
+                            <div class="box clear right ">
                                 <p>
-                                    <%= location.country %>
                                 </p>
                             </div>
                         </div>
                         <%# Forecast %>
-                            <div class="box sevenDays">
-                                <div>
-                                    <br>
-                                    <img src=`https:` height="100px" />
+                            <div class="sevenBox">
+                                <% for(let i=1; i < 8; i++) { %>
+                                    <div class="sevenDays">
+                                        <p class="clear">
+                                            <%= new Date(forecast[i].date).toLocaleDateString('en-US', { weekday: 'long'
+                                                }) %>
+                                        </p>
+                                        <img class="clear" src="https:<%=forecast[i].day.condition.icon%>"
+                                            height="50px" />
+                                        <p class="clear">
+                                            <%= Math.floor(forecast[i].day.mintemp_c) %>° / <%=
+                                                    Math.floor(forecast[i].day.maxtemp_c) %>°
+                                        </p>
+                                    </div>
 
-                                </div>
+                                    <% } %>
+                                        <% } %>
                             </div>
-                            <% } %>
         </div>
     </main>
     </body>

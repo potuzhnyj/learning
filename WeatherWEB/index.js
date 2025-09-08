@@ -15,17 +15,19 @@ app.get("/", (req, res) => {
 });
 
 app.post("/city", async (req, res) => {
-  const cityId = "https:" + req.body.city;
+  const cityId = req.body.city;
   try {
     const response = await axios.get(
-      `http://api.weatherapi.com/v1/forecast.json?key=${API}&q=${cityId}`
+      `http://api.weatherapi.com/v1/forecast.json?key=${API}&q=${cityId}&days=8`
     );
-    const result = response.data;
+    const current_location = response.data.location;
+    const current_condition = response.data.current;
+    const forecast = response.data.forecast.forecastday;
 
     res.render("index.ejs", {
-      location: result.location,
-      condition: result.current,
-      forecast: result.forecast,
+      location: current_location,
+      condition: current_condition,
+      forecast: forecast,
     });
   } catch (error) {
     console.log(error.message);
