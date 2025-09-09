@@ -21,12 +21,10 @@ app.post("/city", async (req, res) => {
       `http://api.weatherapi.com/v1/forecast.json?key=${API}&q=${cityId}&days=8`
     );
     const current_location = response.data.location;
-    const current_condition = response.data.current;
     const forecast = response.data.forecast.forecastday;
 
     res.render("index.ejs", {
       location: current_location,
-      condition: current_condition,
       forecast: forecast,
     });
   } catch (error) {

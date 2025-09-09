@@ -9,13 +9,40 @@
                     </form>
                 </div>
                 <%# Weather %>
-                    <% if (locals.location && locals.condition && locals.forecast){ %>
+                    <% if (locals.location && locals.forecast){ %>
                         <div class="current">
-                            <div class="box clear left ">
-                                <h2>
-                                    <%= location.name %><img src="https:<%=condition.condition.icon%>" height="70px" />
+                            <div class="box clear left">
+                                <div>
+                                    <p class="clear bold">
+                                        <%= location.name %>
+                                    </p>
+                                    <br>
+                                    <img src="https:<%=forecast[0].day.condition.icon%>" height="70px" />
+                                    <div style="display: flex;">
+                                        <p style="font-size: 3rem;" class="clear">
+                                            <%= Math.floor(forecast[0].day.maxtemp_c) %>°&numsp;
+                                        </p>
+                                        <p class="clear mintemp">
+                                            <%= Math.floor(forecast[0].day.mintemp_c) %>°
+                                        </p>
+                                    </div>
+                                </div>
+                                <div>
 
-                                </h2>
+                                </div>
+                                <div>
+                                    <p class="clear bold">
+                                        <%= location.country %>
+                                    </p>
+                                    <p class="clear">
+                                        <%= new Date(forecast[0].date).toLocaleTimeString('en-US') %>
+                                    </p>
+                                    <p class="clear">
+                                        <%=forecast[0].day.condition.text%>
+                                    </p>
+
+                                </div>
+
 
                             </div>
 
@@ -28,16 +55,20 @@
                             <div class="sevenBox">
                                 <% for(let i=1; i < 8; i++) { %>
                                     <div class="sevenDays">
-                                        <p class="clear">
-                                            <%= new Date(forecast[i].date).toLocaleDateString('en-US', { weekday: 'long'
-                                                }) %>
+                                        <p class="clear bold">
+                                            <%= new Date(forecast[i].date).toLocaleDateString('en-US', {
+                                                weekday: 'short' }) %>
                                         </p>
                                         <img class="clear" src="https:<%=forecast[i].day.condition.icon%>"
                                             height="50px" />
-                                        <p class="clear">
-                                            <%= Math.floor(forecast[i].day.mintemp_c) %>° / <%=
-                                                    Math.floor(forecast[i].day.maxtemp_c) %>°
-                                        </p>
+                                        <div style="display: flex;">
+                                            <p class="clear">
+                                                <%= Math.floor(forecast[i].day.maxtemp_c) %>°&numsp;
+                                            </p>
+                                            <p class="clear mintemp">
+                                                <%= Math.floor(forecast[i].day.mintemp_c) %>°
+                                            </p>
+                                        </div>
                                     </div>
 
                                     <% } %>
