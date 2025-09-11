@@ -76,9 +76,9 @@ app.patch("/jokes/:id", async (req, res) => {
 //7. DELETE Specific joke
 app.delete("/jokes/:id", (req, res) => {
   const joke_id = req.params["id"];
-  var del = joke_id - 1;
-  const removed = jokes[del];
-  jokes.splice(del, 1);
+  const existingjoke = posts.find((a) => a.id === id);
+  const remove = JSON.stringify(existingjoke);
+  jokes.splice(remove, 1);
   res.sendStatus(200);
 });
 
