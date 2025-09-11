@@ -1,4 +1,4 @@
-import express from "express";
+import express, { request } from "express";
 import bodyParser from "body-parser";
 
 const app = express();
@@ -8,20 +8,90 @@ const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //1. GET a random joke
+app.get("/random", async (req, res) => {
+  const randomIndex = Math.floor(Math.random() * jokes.length);
+  res.json(jokes[randomIndex]);
+});
 
 //2. GET a specific joke
+app.get("/jokes/:id", async (req, res) => {
+  const joke_id = req.params["id"];
+  res.json(jokes[joke_id - 1]);
+});
 
 //3. GET a jokes by filtering on the joke type
+app.get("/filter", async (req, res) => {
+  const type = req.query.type;
+  var filtered = jokes.filter((a) => a.jokeType === type);
+  res.json(filtered);
+});
 
 //4. POST a new joke
-
+app.post("/jokes", async (req, res) => {
+  const newJoke = {
+    id: jokes.length + 1,
+    jokeText: req.body.text,
+    jokeType: req.body.type,
+  };
+  jokes.push(newJoke);
+  console.log(jokes.slice(-1));
+  res.json(newJoke);
+});
 //5. PUT a joke
-
+app.put("/jokes/:id", async (req, res) => {
+  const joke_id = req.params["id"];
+  const newtxt = req.body.text;
+  const newtype = req.body.type;
+  const idx = jokes.findIndex((a) => a.id === joke_id);
+  jokes[idx] = { id, jokeText: newtxt, jokeType: newtype };
+  res.json(jokes[idx]);
+});
 //6. PATCH a joke
+app.patch("/jokes/:id", async (req, res) => {
+  const joke_id = req.params["id"];
+  const idx = jokes.findIndex((a) => a.id === joke_id);
+  const curtext = "" + jokes[joke_id - 1].jokeText;
+  const curtype = "" + jokes[joke_id - 1].jokeType;
+
+  if (req.body.text) {
+    jokes[idx] = {
+      id: joke_id,
+      jokeText: req.body.text,
+      jokeType: curtype,
+    };
+    res.json(jokes[idx]);
+  } else if (req.body.type) {
+    jokes[idx] = {
+      id: joke_id,
+      jokeText: curtext,
+      jokeType: req.body.type,
+    };
+    res.json(jokes[idx]);
+  } else {
+    res.sendStatus(404);
+    console.log("Hmmm, problem was on your side.");
+  }
+});
 
 //7. DELETE Specific joke
+app.delete("/jokes/:id", (req, res) => {
+  const joke_id = req.params["id"];
+  var del = joke_id - 1;
+  const removed = jokes[del];
+  jokes.splice(del, 1);
+  res.sendStatus(200);
+});
 
 //8. DELETE All jokes
+app.delete("/all", (req, res) => {
+  if (req.headers.api == masterKey) {
+    jokes = [];
+    res.sendStatus(200);
+  } else {
+    res.sendStatus(404);
+    res.status({ error: `You are not authorised to perform this action.` });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
