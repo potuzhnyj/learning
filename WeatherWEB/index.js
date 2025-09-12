@@ -22,7 +22,6 @@ app.post("/city", async (req, res) => {
     );
     const current_location = response.data.location;
     const forecast = response.data.forecast.forecastday;
-
     res.render("index.ejs", {
       location: current_location,
       forecast: forecast,

@@ -12,33 +12,42 @@
                     <% if (locals.location && locals.forecast){ %>
                         <div class="current">
                             <div class="box clear left">
-                                <div>
+                                <div class="clear" style="width: 35%; padding-left: 5%; align-self: center;">
                                     <p class="clear bold">
                                         <%= location.name %>
-                                    </p>
-                                    <br>
-                                    <img src="https:<%=forecast[0].day.condition.icon%>" height="70px" />
-                                    <div style="display: flex;">
-                                        <p style="font-size: 3rem;" class="clear">
-                                            <%= Math.floor(forecast[0].day.maxtemp_c) %>°&numsp;
-                                        </p>
-                                        <p class="clear mintemp">
-                                            <%= Math.floor(forecast[0].day.mintemp_c) %>°
-                                        </p>
-                                    </div>
-                                </div>
-                                <div>
 
+                                    </p>
+                                    <p style="display:flex;font-size: 5rem; font-weight: 700; color: #474646;"
+                                        class="clear">
+                                        <%= Math.floor(forecast[0].day.maxtemp_c) %><span
+                                                style="font-size: 1.5rem; padding-top: 1rem;">°&numsp;</span><span
+                                                style="font-size: 1.2rem; font-weight: 400; padding-top: 3.5rem;"
+                                                class="mintemp">
+                                                /&numsp;<%=Math.floor(forecast[0].day.mintemp_c) %>°
+                                            </span>
+
+                                    </p>
+                                    <p class=" clear">
+
+                                        <%= new Date(forecast[0].date).toLocaleDateString('en-US', { weekday: 'long' })
+                                            %>
+
+                                    </p>
                                 </div>
-                                <div>
-                                    <p class="clear bold">
-                                        <%= location.country %>
+                                <div style="width: 35%;">
+                                    <img class="clear: ;" src="https:<%=forecast[0].day.condition.icon%>"
+                                        height="70px" />
+                                </div>
+                                <div class="clear" style="width: 35%; align-self: center;">
+
+                                    <p class="clear">
+                                        Precipiation: <%= Math.floor(forecast[0].day.totalprecip_mm) %>%
                                     </p>
                                     <p class="clear">
-                                        <%= new Date(forecast[0].date).toLocaleTimeString('en-US') %>
+                                        Humidity: <%= forecast[0].day.avghumidity %>%
                                     </p>
                                     <p class="clear">
-                                        <%=forecast[0].day.condition.text%>
+                                        Wind: <%= forecast[0].day.maxwind_mph %> km/h
                                     </p>
 
                                 </div>
@@ -61,12 +70,12 @@
                                         </p>
                                         <img class="clear" src="https:<%=forecast[i].day.condition.icon%>"
                                             height="50px" />
-                                        <div style="display: flex;">
+                                        <div style="display: flex; padding-top: 5px;">
                                             <p class="clear">
                                                 <%= Math.floor(forecast[i].day.maxtemp_c) %>°&numsp;
                                             </p>
                                             <p class="clear mintemp">
-                                                <%= Math.floor(forecast[i].day.mintemp_c) %>°
+                                                /&numsp;<%= Math.floor(forecast[i].day.mintemp_c) %>°
                                             </p>
                                         </div>
                                     </div>
