@@ -13,7 +13,7 @@
                         <div class="current">
                             <div class="box clear left">
                                 <div class="clear" style="width: 30%; padding: 5%; align-self: center;">
-                                    <p class="clear bold" style="font-size: 1.5rem; position: relative;">
+                                    <p class="bold" style="font-size: 1.5rem; position: relative;">
                                         <%= location.name %><span style="position: absolute; left: 4rem; "><img class="
                                                 clear" src="https:<%=forecast[0].day.condition.icon%>"
                                                     height="50px" /></span>
@@ -35,13 +35,13 @@
                                 </div>
                                 <div class="clear"
                                     style="width: 70%; justify-content: center; display: flex; flex-direction: column;">
-                                    <p class="clear">
+                                    <p>
                                         Precipiation: <%= Math.floor(forecast[0].day.totalprecip_mm) %>%
                                     </p>
-                                    <p class="clear">
+                                    <p>
                                         Humidity: <%= forecast[0].day.avghumidity %>%
                                     </p>
-                                    <p class="clear">
+                                    <p>
                                         Wind: <%= forecast[0].day.maxwind_mph %> km/h
                                     </p>
                                 </div>
@@ -49,23 +49,34 @@
 
                             </div>
 
-                            <div class="box clear right ">
-                                <p>
-                                </p>
+                            <div class="clear right"
+                                style="display: flex; flex-direction: column; justify-content: space-evenly;">
+                                <div style="padding: 10%;">
+                                    <a href="https://github.com/potuzhnyj" target="_blank"><img alt="github_logo"
+                                            src="images/icons/github.png" height="50px" /></a>
+                                </div>
+                                <div style="padding: 10%;">
+                                    <a href="https://www.weatherapi.com/" target="_blank"><img alt="weatherapi_logo"
+                                            src="images/icons/weatherapi.png" height="50px" /></a>
+                                </div>
+                                <div style="padding:10%;">
+                                    <a href="https://www.linkedin.com/in/ivanmosak/" target="_blank"><img
+                                            alt="linkedin_logo" src="images/icons/linkedin.png" height="50px" /></a>
+                                </div>
                             </div>
                         </div>
                         <%# Forecast %>
                             <div class="sevenBox">
                                 <% for(let i=1; i < 8; i++) { %>
                                     <div class="sevenDays">
-                                        <p class="clear bold">
+                                        <p class=" bold">
                                             <%= new Date(forecast[i].date).toLocaleDateString('en-US', {
                                                 weekday: 'short' }) %>
                                         </p>
                                         <img class="clear" src="https:<%=forecast[i].day.condition.icon%>"
                                             height="50px" />
                                         <div style="display: flex; padding-top: 5px;">
-                                            <p class="clear">
+                                            <p>
                                                 <%= Math.floor(forecast[i].day.maxtemp_c) %>°&numsp;
                                             </p>
                                             <p class="clear mintemp">

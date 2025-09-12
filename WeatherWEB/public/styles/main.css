@@ -31,7 +31,8 @@
   cursor: pointer;
 }
 
-.clear {
+.clear,
+p {
   margin: 0;
   padding: 0;
 }
@@ -41,11 +42,10 @@
   height: 7%;
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
 }
 .input {
   line-height: 28px;
-  height: 45px;
   border: none;
   background-color: #caf0f800;
   outline: none;
@@ -72,10 +72,10 @@
 }
 
 .left {
-  width: 70%;
+  width: 95%;
 }
 .right {
-  width: 30%;
+  width: 5%;
 }
 
 .currenttemp {
