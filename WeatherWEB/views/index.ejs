@@ -1,6 +1,6 @@
 <%- include('partials/header.ejs') %>
     <main>
-        <div class="container liquid-glass">
+        <div class="container liquid-glass" style="padding: 5px;">
             <%# Searchbar %>
                 <div class="box search">
                     <form class="clear" action="/city" method="post">
@@ -12,34 +12,29 @@
                     <% if (locals.location && locals.forecast){ %>
                         <div class="current">
                             <div class="box clear left">
-                                <div class="clear" style="width: 35%; padding-left: 5%; align-self: center;">
-                                    <p class="clear bold">
-                                        <%= location.name %>
+                                <div class="clear" style="width: 30%; padding: 5%; align-self: center;">
+                                    <p class="clear bold" style="font-size: 1.5rem; position: relative;">
+                                        <%= location.name %><span style="position: absolute; left: 4rem; "><img class="
+                                                clear" src="https:<%=forecast[0].day.condition.icon%>"
+                                                    height="50px" /></span>
 
                                     </p>
-                                    <p style="display:flex;font-size: 5rem; font-weight: 700; color: #474646;"
-                                        class="clear">
+                                    <p
+                                        style="display:flex; font-size: 5rem; font-weight: 700; color: #474646; margin-top: 0; margin-bottom: 0;">
                                         <%= Math.floor(forecast[0].day.maxtemp_c) %><span
                                                 style="font-size: 1.5rem; padding-top: 1rem;">°&numsp;</span><span
                                                 style="font-size: 1.2rem; font-weight: 400; padding-top: 3.5rem;"
                                                 class="mintemp">
                                                 /&numsp;<%=Math.floor(forecast[0].day.mintemp_c) %>°
                                             </span>
-
                                     </p>
-                                    <p class=" clear">
-
+                                    <p class="clear">
                                         <%= new Date(forecast[0].date).toLocaleDateString('en-US', { weekday: 'long' })
                                             %>
-
                                     </p>
                                 </div>
-                                <div style="width: 35%;">
-                                    <img class="clear: ;" src="https:<%=forecast[0].day.condition.icon%>"
-                                        height="70px" />
-                                </div>
-                                <div class="clear" style="width: 35%; align-self: center;">
-
+                                <div class="clear"
+                                    style="width: 70%; justify-content: center; display: flex; flex-direction: column;">
                                     <p class="clear">
                                         Precipiation: <%= Math.floor(forecast[0].day.totalprecip_mm) %>%
                                     </p>
@@ -49,7 +44,6 @@
                                     <p class="clear">
                                         Wind: <%= forecast[0].day.maxwind_mph %> km/h
                                     </p>
-
                                 </div>
 
 

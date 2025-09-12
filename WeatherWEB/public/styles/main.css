@@ -38,7 +38,7 @@
 
 /* Searchbar */
 .search {
-  height: 50px;
+  height: 7%;
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -64,7 +64,7 @@
 /* Current weather */
 .current {
   width: 85%;
-  height: 250px;
+  height: 40%;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -72,10 +72,18 @@
 }
 
 .left {
-  width: 80%;
+  width: 70%;
 }
 .right {
-  width: 20%;
+  width: 30%;
+}
+
+.currenttemp {
+  display: flex;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #474646;
+  position: relative;
 }
 
 .mintemp {
@@ -88,6 +96,7 @@
 /* 7days */
 .sevenBox {
   width: 85%;
+  height: 20%;
   border-radius: 20px;
   isolation: isolate;
   display: flex;
@@ -101,7 +110,7 @@
 }
 
 .sevenDays {
-  height: 100px;
+  height: 80%;
   width: 85%;
   display: flex;
   flex-direction: column;
