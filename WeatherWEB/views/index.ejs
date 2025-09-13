@@ -1,4 +1,20 @@
-<%- include('partials/header.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
+    <title>WeatherWEB</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
     <main>
         <div class="container liquid-glass" style="padding: 5px;">
             <%# Searchbar %>
@@ -14,7 +30,7 @@
                             <div class="box clear left">
                                 <div class="clear" style="width: 30%; padding: 5%; align-self: center;">
                                     <p class="bold" style="font-size: 1.5rem; position: relative;">
-                                        <%= location.name %><span style="position: absolute; left: 4rem; "><img class="
+                                        <%= location.name %><span style="position: absolute; left: 7rem; "><img class="
                                                 clear" src="https:<%=forecast[0].day.condition.icon%>"
                                                     height="50px" /></span>
 
@@ -52,15 +68,15 @@
                             <div class="clear right"
                                 style="display: flex; flex-direction: column; justify-content: space-evenly;">
                                 <div style="padding: 10%;">
-                                    <a href="https://github.com/potuzhnyj" target="_blank"><img alt="github_logo"
-                                            src="images/icons/github.png" height="50px" /></a>
+                                    <a href="https://github.com/potuzhnyj" target="_blank"><img class="icons"
+                                            alt="github_logo" src="images/icons/github.png" height="50px" /></a>
                                 </div>
                                 <div style="padding: 10%;">
-                                    <a href="https://www.weatherapi.com/" target="_blank"><img alt="weatherapi_logo"
-                                            src="images/icons/weatherapi.png" height="50px" /></a>
+                                    <a href="https://www.weatherapi.com/" target="_blank"><img class="icons"
+                                            alt="weatherapi_logo" src="images/icons/weatherapi.png" height="50px" /></a>
                                 </div>
                                 <div style="padding:10%;">
-                                    <a href="https://www.linkedin.com/in/ivanmosak/" target="_blank"><img
+                                    <a href="https://www.linkedin.com/in/ivanmosak/" target="_blank"><img class="icons"
                                             alt="linkedin_logo" src="images/icons/linkedin.png" height="50px" /></a>
                                 </div>
                             </div>
@@ -90,6 +106,6 @@
                             </div>
         </div>
     </main>
-    </body>
+</body>
 
-    </html>
+</html>

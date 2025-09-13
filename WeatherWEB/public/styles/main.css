@@ -10,6 +10,13 @@
   font-style: normal;
   font-weight: 400;
 }
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -70,6 +77,9 @@ p {
   align-items: stretch;
   gap: 40px;
 }
+.icons {
+  filter: drop-shadow(0 0 0.5rem rgba(128, 128, 128, 0.45));
+}
 
 .left {
   width: 95%;
@@ -126,15 +136,13 @@ p {
 
 /* Background */
 .liquid-glass {
-  border-radius: 56.00000000000001px;
-  isolation: isolate;
-  box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  padding: 0;
-  margin: 30px;
+  padding: 30px;
   text-decoration: none;
   cursor: pointer;
 }
