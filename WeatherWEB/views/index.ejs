@@ -17,26 +17,28 @@
 <body>
     <main>
         <div class="container liquid-glass" style="padding: 5px;">
-            <%# Searchbar %>
-                <div class="box search">
-                    <form class="clear" action="/city" method="post">
-                        <input class="input" type="text" placeholder="Enter the city here..." name="city"
-                            autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-                    </form>
-                </div>
-                <%# Weather %>
-                    <% if (locals.location && locals.forecast){ %>
+            <% if (locals.location && locals.forecast){ %>
+                <%# Searchbar %>
+
+                    <div class="box search">
+                        <form class="clear" action="/city" method="post">
+                            <input class="input" type="text" placeholder="<%= location.country %>" name="city"
+                                autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+                        </form>
+                    </div>
+                    <%# Weather %>
+
                         <div class="current">
                             <div class="box clear left">
                                 <div class="clear" style="width: 30%; padding: 5%; align-self: center;">
-                                    <p class="bold" style="font-size: 1.5rem; position: relative;">
+                                    <p class="bold" style="font-size: 1.5rem; position: relative;"
+                                        onclick="temperature">
                                         <%= location.name %><span style="position: absolute; left: 7rem; "><img class="
                                                 clear" src="https:<%=forecast[0].day.condition.icon%>"
                                                     height="50px" /></span>
 
                                     </p>
-                                    <p
-                                        style="display:flex; font-size: 5rem; font-weight: 700; color: #474646; margin-top: 0; margin-bottom: 0;">
+                                    <p class="maintemp">
                                         <%= Math.floor(forecast[0].day.maxtemp_c) %><span
                                                 style="font-size: 1.5rem; padding-top: 1rem;">°&numsp;</span><span
                                                 style="font-size: 1.2rem; font-weight: 400; padding-top: 3.5rem;"
@@ -61,26 +63,28 @@
                                         Wind: <%= forecast[0].day.maxwind_mph %> km/h
                                     </p>
                                 </div>
-
-
                             </div>
 
-                            <div class="clear right"
-                                style="display: flex; flex-direction: column; justify-content: space-evenly;">
-                                <div style="padding: 10%;">
-                                    <a href="https://github.com/potuzhnyj" target="_blank"><img class="icons"
-                                            alt="github_logo" src="images/icons/github.png" height="50px" /></a>
+                            <%# Icons tab %>
+                                <div class="clear right"
+                                    style="display: flex; flex-direction: column; justify-content: space-evenly;">
+                                    <div style="padding: 10%;">
+                                        <a href="https://github.com/potuzhnyj" target="_blank"><img class="icons"
+                                                alt="github_logo" src="images/icons/github.png" height="50px" /></a>
+                                    </div>
+                                    <div style="padding: 10%;">
+                                        <a href="https://www.weatherapi.com/" target="_blank"><img class="icons"
+                                                alt="weatherapi_logo" src="images/icons/weatherapi.png"
+                                                height="50px" /></a>
+                                    </div>
+                                    <div style="padding:10%;">
+                                        <a href="https://www.linkedin.com/in/ivanmosak/" target="_blank"><img
+                                                class="icons" alt="linkedin_logo" src="images/icons/linkedin.png"
+                                                height="50px" /></a>
+                                    </div>
                                 </div>
-                                <div style="padding: 10%;">
-                                    <a href="https://www.weatherapi.com/" target="_blank"><img class="icons"
-                                            alt="weatherapi_logo" src="images/icons/weatherapi.png" height="50px" /></a>
-                                </div>
-                                <div style="padding:10%;">
-                                    <a href="https://www.linkedin.com/in/ivanmosak/" target="_blank"><img class="icons"
-                                            alt="linkedin_logo" src="images/icons/linkedin.png" height="50px" /></a>
-                                </div>
-                            </div>
                         </div>
+
                         <%# Forecast %>
                             <div class="sevenBox">
                                 <% for(let i=1; i < 8; i++) { %>
@@ -102,10 +106,21 @@
                                     </div>
 
                                     <% } %>
-                                        <% } %>
+                                        <% } else{%>
+                                            <%# Searchbar %>
+                                                <div class="box search">
+                                                    <form class="clear" action="/city" method="post">
+                                                        <input class="input" type="text"
+                                                            placeholder="Enter the city here..." name="city"
+                                                            autocomplete="off" autocorrect="off" autocapitalize="off"
+                                                            spellcheck="false" />
+                                                    </form>
+                                                </div>
+                                                <% } %>
                             </div>
         </div>
     </main>
+
 </body>
 
 </html>

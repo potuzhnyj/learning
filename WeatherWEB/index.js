@@ -15,10 +15,14 @@ app.get("/", (req, res) => {
 });
 
 app.post("/city", async (req, res) => {
-  const cityId = req.body.city;
+  var cityId = req.body.city;
+  const newcityId = await axios.get(
+    `http://api.weatherapi.com/v1/search.json?key=${API}&q=${cityId}`
+  );
   try {
+    cityId = newcityId.data[0].name;
     const response = await axios.get(
-      `http://api.weatherapi.com/v1/forecast.json?key=${API}&q=${cityId}&days=8`
+      `http://api.weatherapi.com/v1/forecast.json?key=${API}&q=${cityId}&days=8&aqi=yes`
     );
     const current_location = response.data.location;
     const forecast = response.data.forecast.forecastday;
