@@ -4,22 +4,16 @@ import pg from "pg";
 
 const app = express();
 const port = 3000;
-
+// connecting database
 const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "world",
-  password: "postgres",
+  user: "TATKO", // имя пользователя PostgreSQL
+  host: "192.168.178.27", // IP
+  database: "tatko", // имя базы данных
+  password: "123456", // password
   port: 5432,
 });
 
 db.connect();
-
-let quiz = [
-  { country: "France", capital: "Paris" },
-  { country: "USA", capital: "Washington DC" },
-  { country: "UK", capital: "London" },
-];
 
 db.query("SELECT * FROM capitals", (err, res) => {
   if (err) {
@@ -29,6 +23,12 @@ db.query("SELECT * FROM capitals", (err, res) => {
   }
   db.end();
 });
+// code
+let quiz = [
+  { country: "France", capital: "Paris" },
+  { country: "USA", capital: "Washington DC" },
+  { country: "UK", capital: "London" },
+];
 
 let totalCorrect = 0;
 
