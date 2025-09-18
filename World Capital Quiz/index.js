@@ -2,19 +2,21 @@ import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
 
-const app = express();
-const port = 3000;
 // connecting database
 const db = new pg.Client({
-  user: "TATKO", // имя пользователя PostgreSQL
+  user: "TATKO", // Ð¸Ð¼Ñ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ PostgreSQL
   host: "192.168.178.27", // IP
-  database: "tatko", // имя базы данных
+  database: "tatko", // Ð¸Ð¼Ñ Ð±Ð°Ð·Ñ Ð´Ð°Ð½Ð½ÑÑ
   password: "123456", // password
   port: 5432,
 });
 
+const app = express();
+const port = 3010;
+
 db.connect();
 
+let quiz = [];
 db.query("SELECT * FROM capitals", (err, res) => {
   if (err) {
     console.error("Error executing query", err.stack);
@@ -23,12 +25,6 @@ db.query("SELECT * FROM capitals", (err, res) => {
   }
   db.end();
 });
-// code
-let quiz = [
-  { country: "France", capital: "Paris" },
-  { country: "USA", capital: "Washington DC" },
-  { country: "UK", capital: "London" },
-];
 
 let totalCorrect = 0;
 
@@ -50,7 +46,7 @@ app.get("/", async (req, res) => {
 app.post("/submit", (req, res) => {
   let answer = req.body.answer.trim();
   let isCorrect = false;
-  if (currentQuestion.capital.toLowerCase() === answer.toLowerCase()) {
+  if (currentQuestion.capitals.toLowerCase() === answer.toLowerCase()) {
     totalCorrect++;
     console.log(totalCorrect);
     isCorrect = true;
