@@ -25,7 +25,7 @@ app.get("/", async (req, res) => {
     countries.push(country.country_code);
   });
   console.log(result.rows);
-  res.render("index.ejs", { countries: countries, total: countries.length });
+  res.redirect("/");
   db.end();
 });
 
